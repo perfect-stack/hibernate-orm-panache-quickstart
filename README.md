@@ -1,10 +1,10 @@
 
 ## Links
 
-Run Server: ./mvnw quarkus:dev
-Dev UI: http://localhost:8080/q/dev/
-OpenAPI: http://localhost:8080/q/openapi?format=json
-SwaggerUI: http://localhost:8080/q/swagger-ui/
+ - Run Server: ./mvnw quarkus:dev
+ - Dev UI: http://localhost:8080/q/dev/
+ - OpenAPI: http://localhost:8080/q/openapi?format=json
+ - SwaggerUI: http://localhost:8080/q/swagger-ui/
 
 
 # Quarkus demo: Hibernate ORM with Panache and RESTEasy

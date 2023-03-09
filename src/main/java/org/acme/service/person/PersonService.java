@@ -106,6 +106,10 @@ public class PersonService {
 
                 personRepository.persist(person);
                 createdCount++;
+
+                if(createdCount > 100) {
+                    break;
+                }
             }
 
             return "Created " + createdCount + " person rows";

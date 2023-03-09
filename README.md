@@ -2,6 +2,7 @@
 ## Links
 
  - Run Server: ./mvnw quarkus:dev
+ - OR Run Server: quarkus dev
  - Dev UI: http://localhost:8080/q/dev/
  - OpenAPI: http://localhost:8080/q/openapi?format=json
  - SwaggerUI: http://localhost:8080/q/swagger-ui/

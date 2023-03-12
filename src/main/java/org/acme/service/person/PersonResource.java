@@ -21,7 +21,13 @@ public class PersonResource {
     @GET
     @Path("{id}")
     public Person findOne(Long id) {
-        return personService.findById(id);
+        try {
+            System.out.println("PersonResource.findOne() started");
+            return personService.findById(id);
+        }
+        finally {
+            System.out.println("PersonResource.findOne() finished");
+        }
     }
 
     @GET

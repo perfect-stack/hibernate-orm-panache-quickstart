@@ -4,10 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.arc.Unremovable;
 import io.quarkus.credentials.CredentialsProvider;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
-import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
-import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
+//import software.amazon.awssdk.regions.Region;
+//import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
+//import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
+//import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -34,7 +34,7 @@ public class MyCredentialsProvider implements CredentialsProvider {
 	}
 
 	public SecretValue getSecretValue() {
-		try {
+		/*try {
 			String secretName = "person_db";
 			Region region = Region.of("ap-southeast-2");
 
@@ -57,7 +57,8 @@ public class MyCredentialsProvider implements CredentialsProvider {
 		}
 		catch (Exception e) {
 			throw e;
-		}
+		}*/
+		throw new UnsupportedOperationException("TODO");
 	}
 
 	public static class SecretValue {

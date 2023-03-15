@@ -4,10 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.arc.Unremovable;
 import io.quarkus.credentials.CredentialsProvider;
-//import software.amazon.awssdk.regions.Region;
-//import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
-//import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
-//import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
+import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
+import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -24,17 +24,22 @@ public class MyCredentialsProvider implements CredentialsProvider {
 	@Override
 	public Map<String, String> getCredentials(String credentialsProviderName) {
 
-		SecretValue secretValue = getSecretValue();
+//		SecretValue secretValue = getSecretValue();
+//		Map<String, String> properties = new HashMap<>();
+//		properties.put(USER_PROPERTY_NAME, secretValue.getUsername());
+//		properties.put(PASSWORD_PROPERTY_NAME, secretValue.getPassword());
 
+		System.out.println("MyCredentialsProvider.getSecretValue() - hard-coded");
 		Map<String, String> properties = new HashMap<>();
-		properties.put(USER_PROPERTY_NAME, secretValue.getUsername());
-		properties.put(PASSWORD_PROPERTY_NAME, secretValue.getPassword());
+		properties.put(USER_PROPERTY_NAME, "postgres");
+		properties.put(PASSWORD_PROPERTY_NAME, "wr35FCd8Cv7uVe");
 
 		return properties;
 	}
 
 	public SecretValue getSecretValue() {
-		/*try {
+		try {
+			System.out.println("MyCredentialsProvider.getSecretValue() - started");
 			String secretName = "person_db";
 			Region region = Region.of("ap-southeast-2");
 
@@ -50,15 +55,23 @@ public class MyCredentialsProvider implements CredentialsProvider {
 			GetSecretValueResponse getSecretValueResponse;
 
 			getSecretValueResponse = client.getSecretValue(getSecretValueRequest);
-			return objectMapper.readValue(getSecretValueResponse.secretString(), SecretValue.class);
+
+			System.out.println("MyCredentialsProvider.getSecretValue() - GOT getSecretValueResponse");
+
+			SecretValue secretValue = objectMapper.readValue(getSecretValueResponse.secretString(), SecretValue.class);
+
+			System.out.println("MyCredentialsProvider.getSecretValue() - GOT secretValue as object");
+			System.out.println(" - username: " + secretValue.getUsername());
+			System.out.println(" - password: " + secretValue.getPassword().substring(0, 4) + "***...");
+
+			return secretValue;
 		}
 		catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
 		catch (Exception e) {
 			throw e;
-		}*/
-		throw new UnsupportedOperationException("TODO");
+		}
 	}
 
 	public static class SecretValue {

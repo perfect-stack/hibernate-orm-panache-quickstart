@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.acme</groupId>
     <artifactId>hibernate-orm-panache-quickstart</artifactId>
-    <version>1.8</version>
+    <version>1.19</version>
 
     <properties>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
@@ -50,16 +50,16 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-amazon-lambda-rest</artifactId>
         </dependency>
-        <!--        <dependency>
-                    <groupId>io.quarkiverse.amazonservices</groupId>
-                    <artifactId>quarkus-amazon-secretsmanager</artifactId>
-                    <version>1.6.3</version>
-                </dependency>
-                <dependency>
-                    <groupId>software.amazon.awssdk</groupId>
-                    <artifactId>url-connection-client</artifactId>
-                    <version>2.20.21</version>
-                </dependency>-->
+        <dependency>
+            <groupId>io.quarkiverse.amazonservices</groupId>
+            <artifactId>quarkus-amazon-secretsmanager</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>url-connection-client</artifactId>
+            <version>2.20.21</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
